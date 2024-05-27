@@ -10,6 +10,7 @@ public class Client1 {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String ip;
             int port;
+            Socket socket;
 
             while (true) {
                 try {
@@ -17,13 +18,12 @@ public class Client1 {
                     ip = reader.readLine();
                     System.out.println("Digite a porta do servidor: ");
                     port = Integer.parseInt(reader.readLine());
+                    socket = new Socket(ip, port);
                     break;
                 } catch (Exception e) {
                     System.out.println("IP ou porta estão errados!");
                 }
             }
-
-            Socket socket = new Socket(ip, port);
 
             new ClientThread(socket).start();
             PrintStream printStream = new PrintStream(socket.getOutputStream());

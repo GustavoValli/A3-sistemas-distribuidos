@@ -16,7 +16,7 @@ public class Jokempo {
         int playerPoints = 0;
         int cpuPoints = 0;
 
-        while (playerPoints + cpuPoints < 3) {
+        while (playerPoints + cpuPoints < 2 || (playerPoints < 2 && cpuPoints < 2)) {
 
             try {
                 clientWriter.println("\nEscolha entre pedra(1) papel(2) e tesoura(3): ");
@@ -96,18 +96,15 @@ public class Jokempo {
         int player1Points = 0;
         int player2Points = 0;
 
-        client1Writer.println("Você é o player1!");
-        client2Writer.println("Você é o player2!");
-
-        while (player1Points + player2Points < 3) {
+        while (player1Points + player2Points < 2 || (player1Points < 2 && player2Points < 2)) {
 
             try {
                 client1Writer.println("\nEscolha entre pedra(1) papel(2) e tesoura(3): ");
-                client2Writer.println("Espere seu turno!");
+                client2Writer.println("\nEspere seu turno!");
                 int player1 = Integer.parseInt(client1Reader.readLine());
 
                 client2Writer.println("\nEscolha entre pedra(1) papel(2) e tesoura(3): ");
-                client1Writer.println("Espere seu turno!");
+                client1Writer.println("\nEspere seu turno!");
                 int player2 = Integer.parseInt(client2Reader.readLine());
 
                 switch (player1) {
@@ -121,16 +118,16 @@ public class Jokempo {
                                 break;
                             case 2:
                                 client1Writer.println("\nPedra vs Papel");
-                                client1Writer.println("Player2 venceu");
-                                client2Writer.println("\nPedra vs Papel");
-                                client2Writer.println("Player2 venceu");
+                                client1Writer.println("Você perdeu!");
+                                client2Writer.println("\nPapel vs Pedra");
+                                client2Writer.println("Você venceu!");
                                 player2Points++;
                                 break;
                             case 3:
                                 client1Writer.println("\nPedra vs Tesoura");
-                                client1Writer.println("Player1 venceu");
-                                client2Writer.println("\nPedra vs Tesoura");
-                                client2Writer.println("Player1 venceu");
+                                client1Writer.println("Você venceu!");
+                                client2Writer.println("\nTesoura vs Pedra");
+                                client2Writer.println("Você perdeu!");
                                 player1Points++;
                                 break;
                         }
@@ -139,9 +136,9 @@ public class Jokempo {
                         switch (player2) {
                             case 1:
                                 client1Writer.println("\nPapel vs Pedra");
-                                client1Writer.println("Player1 venceu");
-                                client2Writer.println("\nPapel vs Pedra");
-                                client2Writer.println("Player1 venceu");
+                                client1Writer.println("Você venceu!");
+                                client2Writer.println("\nPedra vs Papel");
+                                client2Writer.println("Você perdeu!");
                                 player1Points++;
                                 break;
                             case 2:
@@ -152,9 +149,9 @@ public class Jokempo {
                                 break;
                             case 3:
                                 client1Writer.println("\nPapel vs Tesoura");
-                                client1Writer.println("Player2 venceu");
-                                client2Writer.println("\nPapel vs Tesoura");
-                                client2Writer.println("Player2 venceu");
+                                client1Writer.println("Você perdeu!");
+                                client2Writer.println("\nTesoura vs Papel");
+                                client2Writer.println("Você venceu!");
                                 player2Points++;
                                 break;
                         }
@@ -163,16 +160,16 @@ public class Jokempo {
                         switch (player2) {
                             case 1:
                                 client1Writer.println("\nTesoura vs Pedra");
-                                client1Writer.println("Player2 venceu");
-                                client2Writer.println("\nTesoura vs Pedra");
-                                client2Writer.println("Player2 venceu");
+                                client1Writer.println("Você perdeu!");
+                                client2Writer.println("\nPedra vs Tesoura");
+                                client2Writer.println("Você venceu!");
                                 player2Points++;
                                 break;
                             case 2:
                                 client1Writer.println("\nTesoura vs Papel");
-                                client1Writer.println("Player1 venceu");
-                                client2Writer.println("\nTesoura vs Papel");
-                                client2Writer.println("Player1 venceu");
+                                client1Writer.println("Você venceu!");
+                                client2Writer.println("\nPapel vs Tesoura");
+                                client2Writer.println("Você perdeu!");
                                 player1Points++;
                                 break;
                             case 3:
@@ -194,11 +191,11 @@ public class Jokempo {
         }
 
         client1Writer.println("\n\nPONTUAÇÃO FINAL");
-        client1Writer.println("Player1: " + player1Points);
-        client1Writer.println("Player2: " + player2Points);
+        client1Writer.println("Você: " + player1Points);
+        client1Writer.println("Adversário: " + player2Points);
 
         client2Writer.println("\n\nPONTUAÇÃO FINAL");
-        client2Writer.println("Player1: " + player1Points);
-        client2Writer.println("Player2: " + player2Points);
+        client2Writer.println("Você: " + player2Points);
+        client2Writer.println("Adversário: " + player1Points);
     }
 }

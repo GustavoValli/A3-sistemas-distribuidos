@@ -19,6 +19,9 @@ public class Client2 {
                     System.out.println("Digite a porta do servidor: ");
                     port = Integer.parseInt(reader.readLine());
                     socket = new Socket(ip, port);
+                    if (socket.isConnected()) {
+                        System.out.println("Esperando o servidor...\n");
+                    }
                     break;
                 } catch (Exception e) {
                     System.out.println("IP ou porta estão errados!");

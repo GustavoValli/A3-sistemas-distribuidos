@@ -30,6 +30,7 @@ public class Server {
                     Jokempo.startGameVSPlayer(client1Reader, client2Reader, client1Writer, client2Writer);
                 }
             }
+            serverSocket.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

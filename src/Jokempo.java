@@ -87,9 +87,19 @@ public class Jokempo {
             }
         }
 
-        clientWriter.println("\n\nPONTUAÇÃO FINAL");
+        clientWriter.println("\n\n----------------------------------");
+        if (cpuPoints > playerPoints) {
+            clientWriter.println("Você perdeu!");
+        } else {
+            clientWriter.println("Você ganhou!");
+        }
+        clientWriter.println("----------------------------------");
+
+        clientWriter.println("\n\nPONTUAÇÃO FINAL:");
         clientWriter.println("Player: " + playerPoints);
         clientWriter.println("Cpu: " + cpuPoints);
+
+        clientWriter.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
     }
 
     public static void startGameVSPlayer(BufferedReader client1Reader, BufferedReader client2Reader, PrintStream client1Writer, PrintStream client2Writer) throws IOException {
@@ -190,6 +200,18 @@ public class Jokempo {
             }
         }
 
+        client1Writer.println("\n\n----------------------------------");
+        client2Writer.println("\n\n----------------------------------");
+        if (player1Points > player2Points) {
+            client1Writer.println("Você ganhou!");
+            client2Writer.println("Você perdeu!");
+        } else {
+            client1Writer.println("Você perdeu!");
+            client2Writer.println("Você ganhou!");
+        }
+        client1Writer.println("----------------------------------");
+        client2Writer.println("----------------------------------");
+
         client1Writer.println("\n\nPONTUAÇÃO FINAL");
         client1Writer.println("Você: " + player1Points);
         client1Writer.println("Adversário: " + player2Points);
@@ -197,5 +219,8 @@ public class Jokempo {
         client2Writer.println("\n\nPONTUAÇÃO FINAL");
         client2Writer.println("Você: " + player2Points);
         client2Writer.println("Adversário: " + player1Points);
+
+        client1Writer.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
+        client2Writer.println("\nAguarde o outro jogador...");
     }
 }

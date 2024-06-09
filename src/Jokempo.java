@@ -221,6 +221,6 @@ public class Jokempo {
         client2Writer.println("Adversário: " + player1Points);
 
         client1Writer.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
-        client2Writer.println("\nAguarde o outro jogador...");
+        client2Writer.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
     }
 }

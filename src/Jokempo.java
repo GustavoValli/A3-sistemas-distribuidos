@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.Socket;
 import java.util.Random;
 
 public class Jokempo {
@@ -107,21 +108,35 @@ public class Jokempo {
         clientWriter.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
     }
 
-    public static void startGameVSPlayer(BufferedReader client1Reader, BufferedReader client2Reader, PrintStream client1Writer, PrintStream client2Writer) throws IOException {
+    public static void startGameVSPlayer(Socket client1, Socket client2,
+                                         BufferedReader client1Reader, BufferedReader client2Reader,
+                                         PrintStream client1Writer, PrintStream client2Writer) throws IOException {
+
         int draws = 0;
         int player1Points = 0;
         int player2Points = 0;
 
+        int player1;
+        int player2;
+
         while (player1Points + player2Points < 2 || (player1Points < 2 && player2Points < 2)) {
 
             try {
-                client1Writer.println("\nEscolha entre pedra(1) papel(2) e tesoura(3): ");
-                client2Writer.println("\nEspere seu turno!");
-                int player1 = Integer.parseInt(client1Reader.readLine());
+                if (client1.isConnected() && client2.isConnected()) {
+                    client1Writer.println("\nEscolha entre pedra(1) papel(2) e tesoura(3): ");
+                    client2Writer.println("\nEspere seu turno!");
+                    player1 = Integer.parseInt(client1Reader.readLine());
+                } else {
+                    break;
+                }
 
-                client2Writer.println("\nEscolha entre pedra(1) papel(2) e tesoura(3): ");
-                client1Writer.println("\nEspere seu turno!");
-                int player2 = Integer.parseInt(client2Reader.readLine());
+                if (client1.isConnected() && client2.isConnected()) {
+                    client2Writer.println("\nEscolha entre pedra(1) papel(2) e tesoura(3): ");
+                    client1Writer.println("\nEspere seu turno!");
+                    player2 = Integer.parseInt(client2Reader.readLine());
+                } else {
+                    break;
+                }
 
                 switch (player1) {
                     case 1:
@@ -206,6 +221,10 @@ public class Jokempo {
             } catch (Exception e) {
                 client1Writer.println(e.getMessage());
                 client2Writer.println(e.getMessage());
+            }
+
+            if (client1.isClosed() || !client2.isClosed()) {
+                break;
             }
         }
 

@@ -46,7 +46,7 @@ public class ServerThread extends Thread {
                                         BufferedReader otherClientReader = new BufferedReader(new InputStreamReader(otherSocket.getInputStream()));
                                         PrintStream otherClientWriter = new PrintStream(otherSocket.getOutputStream());
 
-                                        Jokempo.startGameVSPlayer(clientReader, otherClientReader, clientWriter, otherClientWriter);
+                                        Jokempo.startGameVSPlayer(socket, otherSocket, clientReader, otherClientReader, clientWriter, otherClientWriter);
                                     }
                                 }
                             } else {

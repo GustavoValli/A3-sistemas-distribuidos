@@ -30,9 +30,7 @@ public class ServerThread extends Thread {
                 String message;
                 while ((message = clientReader.readLine()) != null) {
                     if (message.equals("/play cpu")) {
-                        Server.getClientsConnected().remove(socket);
                         Jokempo.startGameVSCpu(clientReader, clientWriter);
-                        Server.getClientsConnected().add(socket);
                     } else if (message.equals("/play ac")) {
                         synchronized (Server.getClientsConnected()) {
                             Server.getClientsConnected().add(socket);

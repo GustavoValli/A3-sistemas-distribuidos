@@ -13,6 +13,7 @@ public class Jokempo {
     public static void startGameVSCpu(BufferedReader clientReader, PrintStream clientWriter) throws IOException {
         Random random = new Random();
 
+        int draws = 0;
         int playerPoints = 0;
         int cpuPoints = 0;
 
@@ -29,6 +30,7 @@ public class Jokempo {
                             case 1:
                                 clientWriter.println("\nPedra vs Pedra");
                                 clientWriter.println("Empate");
+                                draws++;
                                 break;
                             case 2:
                                 clientWriter.println("\nPedra vs Papel");
@@ -52,6 +54,7 @@ public class Jokempo {
                             case 2:
                                 clientWriter.println("\nPapel vs Papel");
                                 clientWriter.println("Empate");
+                                draws++;
                                 break;
                             case 3:
                                 clientWriter.println("\nPapel vs Tesoura");
@@ -75,6 +78,7 @@ public class Jokempo {
                             case 3:
                                 clientWriter.println("\nTesoura vs Tesoura");
                                 clientWriter.println("Empate");
+                                draws++;
                                 break;
                         }
                         break;
@@ -98,11 +102,13 @@ public class Jokempo {
         clientWriter.println("\n\nPONTUACAO FINAL:");
         clientWriter.println("Player: " + playerPoints);
         clientWriter.println("Cpu: " + cpuPoints);
+        clientWriter.println("Empates: " + draws);
 
         clientWriter.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
     }
 
     public static void startGameVSPlayer(BufferedReader client1Reader, BufferedReader client2Reader, PrintStream client1Writer, PrintStream client2Writer) throws IOException {
+        int draws = 0;
         int player1Points = 0;
         int player2Points = 0;
 
@@ -125,6 +131,7 @@ public class Jokempo {
                                 client1Writer.println("Empate");
                                 client2Writer.println("\nPedra vs Pedra");
                                 client2Writer.println("Empate");
+                                draws++;
                                 break;
                             case 2:
                                 client1Writer.println("\nPedra vs Papel");
@@ -156,6 +163,7 @@ public class Jokempo {
                                 client1Writer.println("Empate");
                                 client2Writer.println("\nPapel vs Papel");
                                 client2Writer.println("Empate");
+                                draws++;
                                 break;
                             case 3:
                                 client1Writer.println("\nPapel vs Tesoura");
@@ -187,6 +195,7 @@ public class Jokempo {
                                 client1Writer.println("Empate");
                                 client2Writer.println("\nTesoura vs Tesoura");
                                 client2Writer.println("Empate");
+                                draws++;
                                 break;
                         }
                         break;
@@ -215,10 +224,12 @@ public class Jokempo {
         client1Writer.println("\n\nPONTUACAO FINAL");
         client1Writer.println("Voce: " + player1Points);
         client1Writer.println("Adversario: " + player2Points);
+        client1Writer.println("Empates: " + draws);
 
         client2Writer.println("\n\nPONTUACAO FINAL");
         client2Writer.println("Voce: " + player2Points);
         client2Writer.println("Adversario: " + player1Points);
+        client2Writer.println("Empates: " + draws);
 
         client1Writer.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
         client2Writer.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");

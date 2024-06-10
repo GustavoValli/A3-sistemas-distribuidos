@@ -24,7 +24,7 @@ public class Client2 {
                     }
                     break;
                 } catch (Exception e) {
-                    System.out.println("IP ou porta estão errados!");
+                    System.out.println("IP ou porta estao errados!");
                 }
             }
 

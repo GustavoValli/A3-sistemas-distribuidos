@@ -37,7 +37,7 @@ public class Jokempo {
                                 break;
                             case 3:
                                 clientWriter.println("\nPedra vs Tesoura");
-                                clientWriter.println("Usuário venceu");
+                                clientWriter.println("Usuario venceu");
                                 playerPoints++;
                                 break;
                         }
@@ -46,7 +46,7 @@ public class Jokempo {
                         switch (cpu) {
                             case 1:
                                 clientWriter.println("\nPapel vs Pedra");
-                                clientWriter.println("Usuário venceu");
+                                clientWriter.println("Usuario venceu");
                                 playerPoints++;
                                 break;
                             case 2:
@@ -69,7 +69,7 @@ public class Jokempo {
                                 break;
                             case 2:
                                 clientWriter.println("\nTesoura vs Papel");
-                                clientWriter.println("Usuário venceu");
+                                clientWriter.println("Usuario venceu");
                                 playerPoints++;
                                 break;
                             case 3:
@@ -79,7 +79,7 @@ public class Jokempo {
                         }
                         break;
                     default:
-                        throw new GameException("\nInsira um valor válido!\n");
+                        throw new GameException("\nInsira um valor valido!\n");
                 }
 
             } catch (Exception e) {
@@ -89,13 +89,13 @@ public class Jokempo {
 
         clientWriter.println("\n\n----------------------------------");
         if (cpuPoints > playerPoints) {
-            clientWriter.println("Você perdeu!");
+            clientWriter.println("Voce perdeu!");
         } else {
-            clientWriter.println("Você ganhou!");
+            clientWriter.println("Voce ganhou!");
         }
         clientWriter.println("----------------------------------");
 
-        clientWriter.println("\n\nPONTUAÇÃO FINAL:");
+        clientWriter.println("\n\nPONTUACAO FINAL:");
         clientWriter.println("Player: " + playerPoints);
         clientWriter.println("Cpu: " + cpuPoints);
 
@@ -128,16 +128,16 @@ public class Jokempo {
                                 break;
                             case 2:
                                 client1Writer.println("\nPedra vs Papel");
-                                client1Writer.println("Você perdeu!");
+                                client1Writer.println("Voce perdeu!");
                                 client2Writer.println("\nPapel vs Pedra");
-                                client2Writer.println("Você venceu!");
+                                client2Writer.println("Voce venceu!");
                                 player2Points++;
                                 break;
                             case 3:
                                 client1Writer.println("\nPedra vs Tesoura");
-                                client1Writer.println("Você venceu!");
+                                client1Writer.println("Voce venceu!");
                                 client2Writer.println("\nTesoura vs Pedra");
-                                client2Writer.println("Você perdeu!");
+                                client2Writer.println("Voce perdeu!");
                                 player1Points++;
                                 break;
                         }
@@ -146,9 +146,9 @@ public class Jokempo {
                         switch (player2) {
                             case 1:
                                 client1Writer.println("\nPapel vs Pedra");
-                                client1Writer.println("Você venceu!");
+                                client1Writer.println("Voce venceu!");
                                 client2Writer.println("\nPedra vs Papel");
-                                client2Writer.println("Você perdeu!");
+                                client2Writer.println("Voce perdeu!");
                                 player1Points++;
                                 break;
                             case 2:
@@ -159,9 +159,9 @@ public class Jokempo {
                                 break;
                             case 3:
                                 client1Writer.println("\nPapel vs Tesoura");
-                                client1Writer.println("Você perdeu!");
+                                client1Writer.println("Voce perdeu!");
                                 client2Writer.println("\nTesoura vs Papel");
-                                client2Writer.println("Você venceu!");
+                                client2Writer.println("Voce venceu!");
                                 player2Points++;
                                 break;
                         }
@@ -170,16 +170,16 @@ public class Jokempo {
                         switch (player2) {
                             case 1:
                                 client1Writer.println("\nTesoura vs Pedra");
-                                client1Writer.println("Você perdeu!");
+                                client1Writer.println("Voce perdeu!");
                                 client2Writer.println("\nPedra vs Tesoura");
-                                client2Writer.println("Você venceu!");
+                                client2Writer.println("Voce venceu!");
                                 player2Points++;
                                 break;
                             case 2:
                                 client1Writer.println("\nTesoura vs Papel");
-                                client1Writer.println("Você venceu!");
+                                client1Writer.println("Voce venceu!");
                                 client2Writer.println("\nPapel vs Tesoura");
-                                client2Writer.println("Você perdeu!");
+                                client2Writer.println("Voce perdeu!");
                                 player1Points++;
                                 break;
                             case 3:
@@ -191,7 +191,7 @@ public class Jokempo {
                         }
                         break;
                     default:
-                        throw new GameException("\nInsira um valor válido!\n");
+                        throw new GameException("\nInsira um valor valido!\n");
                 }
 
             } catch (Exception e) {
@@ -203,22 +203,22 @@ public class Jokempo {
         client1Writer.println("\n\n----------------------------------");
         client2Writer.println("\n\n----------------------------------");
         if (player1Points > player2Points) {
-            client1Writer.println("Você ganhou!");
-            client2Writer.println("Você perdeu!");
+            client1Writer.println("Voce ganhou!");
+            client2Writer.println("Voce perdeu!");
         } else {
-            client1Writer.println("Você perdeu!");
-            client2Writer.println("Você ganhou!");
+            client1Writer.println("Voce perdeu!");
+            client2Writer.println("Voce ganhou!");
         }
         client1Writer.println("----------------------------------");
         client2Writer.println("----------------------------------");
 
-        client1Writer.println("\n\nPONTUAÇÃO FINAL");
-        client1Writer.println("Você: " + player1Points);
-        client1Writer.println("Adversário: " + player2Points);
+        client1Writer.println("\n\nPONTUACAO FINAL");
+        client1Writer.println("Voce: " + player1Points);
+        client1Writer.println("Adversario: " + player2Points);
 
-        client2Writer.println("\n\nPONTUAÇÃO FINAL");
-        client2Writer.println("Você: " + player2Points);
-        client2Writer.println("Adversário: " + player1Points);
+        client2Writer.println("\n\nPONTUACAO FINAL");
+        client2Writer.println("Voce: " + player2Points);
+        client2Writer.println("Adversario: " + player1Points);
 
         client1Writer.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");
         client2Writer.println("\nDigite '/play cpu' para jogar contra a CPU e '/play ac' para jogar contra outra pessoa!");

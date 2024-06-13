@@ -223,7 +223,7 @@ public class Jokempo {
                 client2Writer.println(e.getMessage());
             }
 
-            if (client1.isClosed() || !client2.isClosed()) {
+            if (client1.isClosed() || client2.isClosed()) {
                 break;
             }
         }
